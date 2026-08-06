@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandish Nanjappa | Staff Software Engineer - AI Systems & Infrastructure</title>
+    <title>Nandish Nanjappa | Staff Software Engineer</title>
     <style>
-        /* CSS Reset & Core Variables */
         :root {
-            --primary-color: #0969da;
+            --primary: #0969da;
             --primary-hover: #044289;
-            --bg-color: #f6f8fa;
-            --card-bg: #ffffff;
             --text-main: #1f2328;
-            --text-muted: #57606a;
+            --text-muted: #6e7781;
+            --bg-body: #ffffff;
+            --bg-subtle: #f6f8fa;
             --border-color: #d0d7de;
-            --shadow: 0 3px 10px rgba(0,0,0,0.04);
+            --sidebar-width: 290px;
         }
 
         * {
@@ -25,442 +24,419 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
+            background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
+            padding: 0;
+            margin: 0;
         }
 
-        /* Navigation */
-        nav {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 960px;
+        /* Layout Container */
+        .wrapper {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 3rem 2rem;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 3.5rem;
         }
 
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--text-main);
-            text-decoration: none;
+        /* Left Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            flex-shrink: 0;
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
         }
 
-        .nav-links a {
-            margin-left: 1.5rem;
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 960px;
-            margin: 2.5rem auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero / Header Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            margin-bottom: 3.5rem;
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-        }
-
-        .profile-pic {
-            width: 170px;
-            height: 170px;
+        .avatar {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--border-color);
-            flex-shrink: 0;
-        }
-
-        .hero-text h1 {
-            font-size: 2.3rem;
-            margin-bottom: 0.2rem;
-            color: #000;
-        }
-
-        .hero-text h2 {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .bio {
-            font-size: 1rem;
-            color: var(--text-main);
+            border: 1px solid var(--border-color);
             margin-bottom: 1.2rem;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
+        .sidebar h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.2;
         }
 
-        .btn {
+        .sidebar .title {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar .location {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .sidebar .short-bio {
+            font-size: 0.92rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .sidebar-btn {
             display: inline-block;
-            padding: 0.5rem 1.1rem;
+            text-align: center;
+            padding: 0.55rem 1rem;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
+            transition: background-color 0.2s;
         }
 
         .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-            border: 1px solid var(--primary-color);
+            background-color: var(--primary);
+            color: #ffffff;
+            border: 1px solid var(--primary);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-hover);
         }
 
-        .btn-secondary {
-            background-color: #ffffff;
+        .btn-outline {
+            background-color: transparent;
             color: var(--text-main);
             border: 1px solid var(--border-color);
         }
 
-        .btn-secondary:hover {
-            background-color: var(--bg-color);
+        .btn-outline:hover {
+            background-color: var(--bg-subtle);
         }
 
-        /* Section Titles */
+        /* Right Main Content */
+        .main-content {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
         section {
             margin-bottom: 3rem;
-            scroll-margin-top: 80px;
         }
 
-        section h3 {
-            font-size: 1.4rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            color: #000;
-        }
-
-        /* Card Layout */
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 1.5rem;
+        section h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.4rem;
             margin-bottom: 1.2rem;
-            box-shadow: var(--shadow);
         }
 
-        .card-header {
+        .about-text {
+            font-size: 1.02rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        /* Experience & Education Entries */
+        .item {
+            margin-bottom: 1.8rem;
+        }
+
+        .item-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
-            margin-bottom: 0.4rem;
         }
 
-        .card h4 {
-            font-size: 1.15rem;
+        .item-title {
+            font-size: 1.05rem;
+            font-weight: 700;
             color: var(--text-main);
         }
 
-        .card-company {
-            font-size: 1rem;
+        .item-company {
+            color: var(--primary);
             font-weight: 600;
-            color: var(--primary-color);
         }
 
-        .card .meta {
+        .item-date {
             font-size: 0.88rem;
             color: var(--text-muted);
             font-weight: 500;
-            margin-bottom: 0.8rem;
         }
 
-        .card ul {
+        .item-location {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .item ul {
             margin-left: 1.2rem;
+            margin-top: 0.4rem;
         }
 
-        .card li {
-            margin-bottom: 0.4rem;
-            font-size: 0.98rem;
+        .item li {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
         }
 
-        /* Grid for Projects */
-        .project-list {
-            list-style: none;
-            margin-left: 0 !important;
-        }
-
+        /* Projects List */
         .project-item {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
         }
 
-        .project-item:last-child {
-            border-bottom: none;
-        }
-
-        .project-title {
-            font-weight: 600;
-            color: var(--primary-color);
+        .project-name {
+            font-weight: 700;
+            color: var(--text-main);
         }
 
         /* Footer */
         footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-muted);
             border-top: 1px solid var(--border-color);
-            margin-top: 4rem;
-            background-color: var(--card-bg);
-            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
-        @media (max-width: 768px) {
-            .hero {
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .wrapper {
                 flex-direction: column;
+                padding: 2rem 1.5rem;
+                gap: 2rem;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
                 text-align: center;
             }
-            .profile-pic {
+
+            .avatar {
+                margin: 0 auto 1rem auto;
+            }
+
+            .sidebar-links {
+                max-width: 300px;
                 margin: 0 auto;
             }
-            .cta-buttons {
-                justify-content: center;
-            }
-            .nav-container {
+
+            .item-header {
                 flex-direction: column;
-                gap: 0.8rem;
-            }
-            .nav-links a {
-                margin: 0 0.5rem;
-            }
-            .card-header {
-                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Nandish Nanjappa</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#patents">Patents</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
+    <div class="wrapper">
         
-        <!-- Hero Section -->
-        <section id="about" class="hero">
-            <img src="assets/profile.jpg" alt="Nandish Nanjappa" class="profile-pic" onerror="this.src='https://via.placeholder.com/170?text=Nandish+Nanjappa'">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <img src="assets/profile.jpg" alt="Nandish Nanjappa" class="avatar" onerror="this.src='https://via.placeholder.com/200?text=Nandish+Nanjappa'">
+            <h1>Nandish Nanjappa</h1>
+            <div class="title">Staff Software Engineer</div>
+            <div class="location">San Francisco Bay Area, CA</div>
             
-            <div class="hero-text">
-                <h1>Nandish Nanjappa</h1>
-                <h2>Staff Software Engineer | GenAI & Distributed Systems Architect</h2>
-                
-                <p class="bio">
-                    Staff Software Engineer with expertise in building enterprise-grade GenAI application infrastructures, agent harness architectures, highly available distributed orchestrators, and high-performance cloud storage platforms.
+            <p class="short-bio">
+                Specializing in GenAI application architectures, agent harness systems, and low-latency distributed infrastructure.
+            </p>
+
+            <div class="sidebar-links">
+                <a href="https://www.linkedin.com/in/nandishn/" target="_blank" class="sidebar-btn btn-primary">LinkedIn Profile</a>
+                <a href="https://patents.justia.com/patent/12452272" target="_blank" class="sidebar-btn btn-outline">View Patent</a>
+            </div>
+        </aside>
+
+        <!-- Right Main Content -->
+        <main class="main-content">
+            
+            <!-- About Section -->
+            <section id="about">
+                <h2>About</h2>
+                <p class="about-text">
+                    I am a Staff Software Engineer focused on building enterprise GenAI systems, agent harness frameworks, and high-performance distributed platforms. 
                 </p>
+                <p class="about-text">
+                    Throughout my career across Attentive, Lacework, Clari, Microsoft, Nimble Storage, and NetApp, I have specialized in designing systems optimized for massive scale, high availability, and low latency—ranging from AI agent execution platforms and time-series data warehouses to cloud storage tiering engines.
+                </p>
+            </section>
 
-                <div class="cta-buttons">
-                    <a href="https://www.linkedin.com/in/nandishn/" class="btn btn-primary" target="_blank">LinkedIn Profile</a>
-                    <a href="https://patents.justia.com/search?q=nandish+nanjappa" class="btn btn-secondary" target="_blank">View Granted Patents</a>
+            <!-- Experience Section -->
+            <section id="experience">
+                <h2>Work Experience</h2>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Staff Software Engineer <span class="item-company">@ Attentive</span></span>
+                        <span class="item-date">Sep 2024 – Present</span>
+                    </div>
+                    <div class="item-location">San Francisco Bay Area</div>
+                    <ul>
+                        <li>Building production GenAI applications using LLMs, Generative AI, and OpenAI APIs.</li>
+                        <li>Developing an agent harness system designed for deploying and orchestrating autonomous AI agents at scale.</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
 
-        <!-- Experience Section -->
-        <section id="experience">
-            <h3>Professional Experience</h3>
-
-            <div class="card">
-                <div class="card-header">
-                    <h4>Staff Software Engineer</h4>
-                    <span class="card-company">Attentive</span>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Staff Software Engineer <span class="item-company">@ Lacework</span></span>
+                        <span class="item-date">Mar 2021 – Sep 2024</span>
+                    </div>
+                    <ul>
+                        <li>Engineered an in-house orchestrator heavily optimized for scale, high availability, and sub-second low latency.</li>
+                        <li>Leveraged Kubernetes and Argo to manage containerized execution pipelines for enterprise security telemetry.</li>
+                    </ul>
                 </div>
-                <div class="meta">Sep 2024 – Present · San Francisco Bay Area</div>
-                <ul>
-                    <li>Architecting and building production GenAI applications powered by LLMs and the OpenAI API.</li>
-                    <li>Designing and engineering scalable agent harness systems to orchestrate, evaluate, and deploy autonomous AI agents at scale.</li>
-                </ul>
-            </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h4>Staff Software Engineer</h4>
-                    <span class="card-company">Lacework</span>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Member Of Technical Staff <span class="item-company">@ Clari</span></span>
+                        <span class="item-date">Mar 2019 – Mar 2021</span>
+                    </div>
+                    <div class="item-location">Sunnyvale, CA</div>
+                    <ul>
+                        <li>Built scalable ETL pipelines to load multi-source data into an in-house time series data warehouse.</li>
+                        <li>Implemented core Query Manager features to optimize data retrieval and execution across data platforms.</li>
+                    </ul>
                 </div>
-                <div class="meta">Mar 2021 – Sep 2024 · 3 yrs 7 mos</div>
-                <ul>
-                    <li>Engineered an in-house distributed orchestrator optimized for high availability, massive scale, and sub-second latency across multi-tenant security environments.</li>
-                    <li>Leveraged Kubernetes and Argo to drive infrastructure elasticity, container management, and high-throughput execution.</li>
-                </ul>
-            </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h4>Member Of Technical Staff</h4>
-                    <span class="card-company">Clari</span>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Software Engineer <span class="item-company">@ Microsoft</span></span>
+                        <span class="item-date">Nov 2017 – Mar 2019</span>
+                    </div>
+                    <div class="item-location">Greater Seattle Area</div>
+                    <ul>
+                        <li>Worked in the Azure Storage Service Team engineering backend distributed cloud infrastructure.</li>
+                        <li>Implemented automated storage tiering capabilities across Azure Blob Storage tiers (Hot, Cool, Archive).</li>
+                    </ul>
                 </div>
-                <div class="meta">Mar 2019 – Mar 2021 · 2 yrs 1 mo · Sunnyvale, CA</div>
-                <ul>
-                    <li>Designed scalable ETL pipelines to ingest multi-source data into an in-house time series data warehouse.</li>
-                    <li>Implemented key Query Manager features for high-efficiency data retrieval across enterprise analytics platforms.</li>
-                </ul>
-            </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h4>Software Engineer</h4>
-                    <span class="card-company">Microsoft</span>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Staff / Senior Software Engineer <span class="item-company">@ Nimble Storage</span></span>
+                        <span class="item-date">May 2014 – Sep 2017</span>
+                    </div>
+                    <div class="item-location">San Francisco Bay Area</div>
+                    <ul>
+                        <li>Engineered Control Plane data protection features for Nimble Operating System, primarily focusing on storage replication algorithms.</li>
+                    </ul>
                 </div>
-                <div class="meta">Nov 2017 – Mar 2019 · 1 yr 5 mos · Greater Seattle Area</div>
-                <ul>
-                    <li>Contributed to core distributed cloud infrastructure within the Azure Storage Service Team.</li>
-                    <li>Engineered backend features supporting Azure Blob Storage tiering (Hot, Cool, Archive) to optimize data lifecycle costs for global clients.</li>
-                </ul>
-            </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h4>Staff / Senior Software Engineer</h4>
-                    <span class="card-company">Nimble Storage</span>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Member of Technical Staff <span class="item-company">@ NetApp</span></span>
+                        <span class="item-date">Jul 2011 – Jul 2013</span>
+                    </div>
+                    <div class="item-location">Bangalore, India</div>
+                    <ul>
+                        <li>Worked on the SnapDrive for Unix product engineering team.</li>
+                    </ul>
                 </div>
-                <div class="meta">May 2014 – Sep 2017 · San Francisco Bay Area</div>
-                <ul>
-                    <li>Engineered control plane data protection mechanisms for the Nimble Operating System, focusing on storage replication algorithms and data resilience.</li>
-                </ul>
-            </div>
+            </section>
 
-            <div class="card">
-                <div class="card-header">
-                    <h4>Member of Technical Staff</h4>
-                    <span class="card-company">NetApp</span>
+            <!-- Patents Section -->
+            <section id="patents">
+                <h2>Granted Patent</h2>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Reducing Resource Consumption Spikes in an Anomaly Detection Framework</span>
+                        <span class="item-date">Patent No: 12452272</span>
+                    </div>
+                    <div class="item-location">Assignee: Fortinet, Inc.</div>
+                    <p style="font-size: 0.94rem;">
+                        Methodology for optimizing computational resources during anomaly detection by applying intelligent scheduling and offsets across large-scale networking infrastructures.
+                    </p>
+                    <a href="https://patents.justia.com/patent/12452272" target="_blank" style="color: var(--primary); font-size: 0.88rem; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 0.4rem;">Read Full Patent Details &rarr;</a>
                 </div>
-                <div class="meta">Jul 2011 – Jul 2013 · 2 yrs 1 mo · Bangalore, India</div>
-                <ul>
-                    <li>Worked on the SnapDrive for Unix product engineering team delivering host-side storage management solutions.</li>
-                </ul>
-            </div>
-        </section>
+            </section>
 
-        <!-- Patents Section -->
-        <section id="patents">
-            <h3>Granted Patents</h3>
-
-            <div class="card">
-                <h4>Reducing Resource Consumption Spikes in an Anomaly Detection Framework</h4>
-                <div class="meta">Patent No: 12452272 | Assignee: Fortinet, Inc.</div>
-                <p>Invention detailing computational resource optimization for anomaly detection frameworks by applying intelligent job scheduling and offsets across enterprise security infrastructures.</p>
-                <a href="https://patents.justia.com/patent/12452272" target="_blank" style="color: var(--primary-color); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 0.5rem;">Read Patent Details &rarr;</a>
-            </div>
-
-            <div class="card">
-                <h4>Role-Based Permission by a Data Platform</h4>
-                <div class="meta">Patent No: 12452279 | Assignee: Fortinet, Inc.</div>
-                <p>Security system managing complex role-based permissions and identity subgroupings, serving as a critical safety and policy enforcement mechanism for distributed data environments.</p>
-                <a href="https://patents.justia.com/patent/12452279" target="_blank" style="color: var(--primary-color); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 0.5rem;">Read Patent Details &rarr;</a>
-            </div>
-        </section>
-
-        <!-- Key Projects Section -->
-        <section id="projects">
-            <h3>Key Technical Projects & Implementations</h3>
-            <div class="card">
-                <ul class="project-list">
-                    <li class="project-item">
-                        <span class="project-title">AI Agent Harness Systems:</span> Enterprise framework built to deploy, isolate, and monitor autonomous LLM agents at scale.
-                    </li>
-                    <li class="project-item">
-                        <span class="project-title">High-Scale Distributed Orchestrator:</span> Low-latency Kubernetes/Argo orchestration system designed for high availability and high task throughput.
-                    </li>
-                    <li class="project-item">
-                        <span class="project-title">Demand Paging & Private Heap in XINU:</span> Implemented page fault handling, circular queue FIFO, and NRU page replacement in the XINU kernel.
-                    </li>
-                    <li class="project-item">
-                        <span class="project-title">FUSE File System over RAID:</span> Emulated RAID 0, 1, 4, and 5 over USB/virtual storage using a custom FUSE file system layer.
-                    </li>
-                    <li class="project-item">
-                        <span class="project-title">XINU Synchronization & Priority Inversion:</span> Built custom read/write locks with priority inheritance algorithms inside the XINU kernel.
-                    </li>
-                    <li class="project-item">
-                        <span class="project-title">Short-Term Kernel Process Schedulers:</span> Developed epoch-based and randomized short-term schedulers eliminating starvation in XINU.
-                    </li>
-                    <li class="project-item">
-                        <span class="project-title">Cache Coherence Protocol Simulator:</span> Shared Multiprocessor simulator enforcing MSI, MESI, and MOESI protocols with LRU cache replacement.
-                    </li>
-                    <li class="project-item">
-                        <span class="project-title">Point-to-Multipoint Reliable FTP:</span> Built reliable Stop-And-Wait transport layer capabilities over unreliable UDP sockets.
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education">
-            <h3>Education & Credentials</h3>
-
-            <div class="card">
-                <div class="card-header">
-                    <h4>Harvard Business School Online</h4>
-                    <span class="card-company">Certificate Program</span>
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>Key Technical Projects</h2>
+                
+                <div class="project-item">
+                    <span class="project-name">AI Agent Harness Systems:</span> Enterprise platform framework built to orchestrate, evaluate, and scale autonomous AI agents.
                 </div>
-                <div class="meta">Certificate in Management Essentials & Entrepreneurship Essentials</div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h4>North Carolina State University</h4>
-                    <span class="card-company">M.S. in Computer Science</span>
+                <div class="project-item">
+                    <span class="project-name">Low-Latency Distributed Orchestrator:</span> High-availability Kubernetes & Argo orchestrator built for low-latency telemetry processing.
                 </div>
-                <div class="meta">Graduate Program</div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h4>Visvesvaraya Technological University</h4>
-                    <span class="card-company">B.E. in Information Science and Engineering</span>
+                <div class="project-item">
+                    <span class="project-name">Demand Paging & Private Heap in XINU:</span> Kernel implementation of page fault handling, circular queue FIFO, and NRU page replacement policies.
                 </div>
-                <div class="meta">Undergraduate Program</div>
-            </div>
-        </section>
+                <div class="project-item">
+                    <span class="project-name">FUSE File System over RAID:</span> Emulation of RAID 0, 1, 4, and 5 over USB/virtual files using a custom FUSE file system library.
+                </div>
+                <div class="project-item">
+                    <span class="project-name">XINU Synchronization & Priority Inversion:</span> Designed read/write kernel locks featuring priority inheritance mechanisms to prevent priority inversion.
+                </div>
+                <div class="project-item">
+                    <span class="project-name">Short-Term Kernel Process Schedulers:</span> Implemented Linux-like epoch schedulers and randomized schedulers eliminating process starvation in XINU.
+                </div>
+                <div class="project-item">
+                    <span class="project-name">Cache Coherence Protocol Simulator:</span> Multiprocessor simulator supporting MSI, MESI, and MOESI protocols with LRU cache replacement.
+                </div>
+                <div class="project-item">
+                    <span class="project-name">Point-to-Multipoint Reliable FTP:</span> Reliable transport layer protocol over unreliable UDP using Stop-And-Wait ARQ.
+                </div>
+                <div class="project-item">
+                    <span class="project-name">P2P Network via Distributed Index:</span> P2P application protocol leveraging concurrent threading models for RFC distribution.
+                </div>
+                <div class="project-item">
+                    <span class="project-name">Prefix-Trie & BST Lookup Structures:</span> Specialized DNS prefix-trie and ARP binary search tree data structures for networking applications.
+                </div>
+            </section>
 
+            <!-- Education Section -->
+            <section id="education">
+                <h2>Education</h2>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Harvard Business School Online</span>
+                    </div>
+                    <p style="font-size: 0.92rem;">Certificate in Management Essentials & Entrepreneurship Essentials</p>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">North Carolina State University</span>
+                    </div>
+                    <p style="font-size: 0.92rem;">Graduate Student, Computer Science</p>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">Visvesvaraya Technological University</span>
+                    </div>
+                    <p style="font-size: 0.92rem;">B.E. in Information Science and Engineering</p>
+                </div>
+            </section>
+
+            <footer>
+                © 2026 Nandish Nanjappa. Hosted via GitHub Pages.
+            </footer>
+
+        </main>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Nandish Nanjappa. Hosted via GitHub Pages.</p>
-    </footer>
 
 </body>
 </html>

@@ -3,440 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandish Nanjappa | Staff Software Engineer</title>
+    <meta name="description" content="Personal website of Nandish Nanjappa, Staff Software Engineer in the San Francisco Bay Area.">
+    <title>Nandish Nanjappa</title>
     <style>
         :root {
-            --primary: #0969da;
-            --primary-hover: #044289;
-            --text-main: #1f2328;
-            --text-muted: #6e7781;
-            --bg-body: #ffffff;
-            --bg-subtle: #f6f8fa;
-            --border-color: #d0d7de;
-            --sidebar-width: 290px;
+            --bg: #fbfaf7;
+            --text: #202124;
+            --muted: #62666d;
+            --line: #e6e0d8;
+            --accent: #246b61;
+            --accent-soft: #e7f0ed;
+            --card: #ffffff;
+            --radius: 8px;
+            --max: 960px;
         }
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 0;
             margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.65;
         }
 
-        /* Layout Container */
-        .wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            display: flex;
-            gap: 3.5rem;
-        }
-
-        /* Left Sidebar */
-        .sidebar {
-            width: var(--sidebar-width);
-            flex-shrink: 0;
-            position: sticky;
-            top: 2rem;
-            height: fit-content;
-        }
-
-        .avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--border-color);
-            margin-bottom: 1.2rem;
-        }
-
-        .sidebar h1 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--text-main);
-            line-height: 1.2;
-        }
-
-        .sidebar .title {
-            font-size: 1rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-top: 0.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .sidebar .location {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .sidebar .short-bio {
-            font-size: 0.92rem;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        .sidebar-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .sidebar-btn {
-            display: inline-block;
-            text-align: center;
-            padding: 0.55rem 1rem;
-            border-radius: 6px;
+        a {
+            color: var(--accent);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.88rem;
-            transition: background-color 0.2s;
         }
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: #ffffff;
-            border: 1px solid var(--primary);
+        a:hover {
+            text-decoration: underline;
         }
 
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
+        .wrap {
+            width: min(var(--max), calc(100% - 40px));
+            margin: 0 auto;
         }
 
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
+        header {
+            padding: 2rem 0 1rem;
         }
 
-        .btn-outline:hover {
-            background-color: var(--bg-subtle);
-        }
-
-        /* Right Main Content */
-        .main-content {
-            flex-grow: 1;
-            min-width: 0;
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        section h2 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.4rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .about-text {
-            font-size: 1.02rem;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
-
-        /* Experience & Education Entries */
-        .item {
-            margin-bottom: 1.8rem;
-        }
-
-        .item-header {
+        nav {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: center;
+            gap: 1rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .name {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
-        .item-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-main);
+        .hero {
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr);
+            gap: 2rem;
+            align-items: center;
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid var(--line);
         }
 
-        .item-company {
-            color: var(--primary);
-            font-weight: 600;
+        .photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--line);
+            background: #eee8df;
         }
 
-        .item-date {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            font-weight: 500;
+        h1 {
+            margin: 0;
+            font-size: clamp(2.25rem, 6vw, 4rem);
+            line-height: 1.05;
+            letter-spacing: 0;
         }
 
-        .item-location {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
+        .intro {
+            max-width: 700px;
+            margin: 1rem 0 0;
+            color: var(--muted);
+            font-size: 1.12rem;
         }
 
-        .item ul {
-            margin-left: 1.2rem;
-            margin-top: 0.4rem;
+        .links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
         }
 
-        .item li {
-            font-size: 0.95rem;
-            margin-bottom: 0.3rem;
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 0.65rem 0.9rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: var(--card);
+            color: var(--text);
+            font-weight: 650;
         }
 
-        /* Projects List */
-        .project-item {
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
+        .button.primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #ffffff;
         }
 
-        .project-name {
-            font-weight: 700;
-            color: var(--text-main);
+        main {
+            padding: 2.8rem 0 4rem;
         }
 
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
+        section {
             margin-top: 3rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
         }
 
-        /* Responsive Design */
-        @media (max-width: 850px) {
-            .wrapper {
-                flex-direction: column;
-                padding: 2rem 1.5rem;
-                gap: 2rem;
-            }
+        section:first-child {
+            margin-top: 0;
+        }
 
-            .sidebar {
-                width: 100%;
-                position: static;
-                text-align: center;
-            }
+        h2 {
+            margin: 0 0 1rem;
+            font-size: 1.35rem;
+            line-height: 1.2;
+        }
 
-            .avatar {
-                margin: 0 auto 1rem auto;
-            }
+        p {
+            margin: 0 0 1rem;
+        }
 
-            .sidebar-links {
-                max-width: 300px;
-                margin: 0 auto;
-            }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
 
-            .item-header {
-                flex-direction: column;
+        .card {
+            padding: 1rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--card);
+        }
+
+        .card h3 {
+            margin: 0 0 0.35rem;
+            font-size: 1rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .role {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .role:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .role-meta {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-top: 0.1rem;
+        }
+
+        .role h3 {
+            margin: 0;
+            font-size: 1.08rem;
+        }
+
+        .role p {
+            margin: 0.25rem 0 0;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .role ul {
+            margin: 0.55rem 0 0;
+            padding-left: 1.1rem;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .role li {
+            margin-bottom: 0.25rem;
+        }
+
+        .note {
+            padding: 1rem;
+            border-left: 4px solid var(--accent);
+            border-radius: var(--radius);
+            background: var(--accent-soft);
+        }
+
+        .link-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .link-card h3 {
+            margin: 0 0 0.25rem;
+            font-size: 1.02rem;
+        }
+
+        .link-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .source {
+            display: block;
+            margin-top: 0.45rem;
+            color: var(--accent);
+            font-size: 0.94rem;
+            font-weight: 650;
+        }
+
+        .inline-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.75rem;
+        }
+
+        .inline-links a {
+            padding: 0.35rem 0.6rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--card);
+            font-size: 0.94rem;
+            font-weight: 650;
+        }
+
+        footer {
+            padding: 2rem 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 760px) {
+            nav {
                 align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 2.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="wrapper">
-        
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <img src="assets/profile.jpeg" alt="Nandish Nanjappa" class="avatar" onerror="this.src='https://via.placeholder.com/200?text=Nandish+Nanjappa'">
-            <h1>Nandish Nanjappa</h1>
-            <div class="title">Staff Software Engineer</div>
-            <div class="location">San Francisco Bay Area, CA</div>
-            
-            <p class="short-bio">
-                Specializing in GenAI application architectures, agent harness systems, and low-latency distributed infrastructure.
-            </p>
-
-            <div class="sidebar-links">
-                <a href="https://www.linkedin.com/in/nandishn/" target="_blank" class="sidebar-btn btn-primary">LinkedIn Profile</a>
-                <a href="https://patents.justia.com/patent/12452272" target="_blank" class="sidebar-btn btn-outline">View Patent</a>
+    <header class="wrap">
+        <nav aria-label="Primary navigation">
+            <a class="name" href="#top">Nandish Nanjappa</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#work">Work</a>
+                <a href="#contact">Contact</a>
             </div>
-        </aside>
+        </nav>
 
-        <!-- Right Main Content -->
-        <main class="main-content">
-            
-            <!-- About Section -->
-            <section id="about">
-                <h2>About</h2>
-                <p class="about-text">
-                    I am a Staff Software Engineer focused on building enterprise GenAI systems, agent harness frameworks, and high-performance distributed platforms. 
+        <section class="hero" id="top">
+            <img class="photo" src="assets/profile.jpeg" alt="Nandish Nanjappa">
+            <div>
+                <h1>Hi, I'm Nandish.</h1>
+                <p class="intro">
+                    I'm a Staff Software Engineer in the San Francisco Bay Area. I work on GenAI applications, agent systems, distributed infrastructure, and backend platforms that need to be fast, reliable, and easy to operate.
                 </p>
-                <p class="about-text">
-                    Throughout my career across Attentive, Lacework, Clari, Microsoft, Nimble Storage, and NetApp, I have specialized in designing systems optimized for massive scale, high availability, and low latency—ranging from AI agent execution platforms and time-series data warehouses to cloud storage tiering engines.
-                </p>
-            </section>
+                <div class="links">
+                    <a class="button primary" href="https://www.linkedin.com/in/nandishn/" target="_blank" rel="noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </header>
 
-            <!-- Experience Section -->
-            <section id="experience">
-                <h2>Work Experience</h2>
+    <main class="wrap">
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                I like building systems at the point where product ambition meets operational reality: AI workflows, orchestration layers, data platforms, storage systems, and infrastructure that has to hold up at scale.
+            </p>
+            <p>
+                My career has taken me through Attentive, Lacework, Clari, Microsoft, Nimble Storage, and NetApp, with work spanning GenAI, security telemetry, revenue data, Azure Storage, replication, and Unix storage tooling.
+            </p>
+        </section>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Staff Software Engineer <span class="item-company">@ Attentive</span></span>
-                        <span class="item-date">Sep 2024 – Present</span>
-                    </div>
-                    <div class="item-location">San Francisco Bay Area</div>
+        <section>
+            <h2>What I Focus On</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>AI Systems</h3>
+                    <p>Production GenAI applications, agent harnesses, LLM integrations, and evaluation workflows.</p>
+                </article>
+                <article class="card">
+                    <h3>Distributed Platforms</h3>
+                    <p>Low-latency orchestration, Kubernetes-based execution, telemetry pipelines, and resilient services.</p>
+                </article>
+                <article class="card">
+                    <h3>Storage and Data</h3>
+                    <p>Cloud storage, replication, time-series data systems, ETL pipelines, and query infrastructure.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="work">
+            <h2>Work</h2>
+            <div class="timeline">
+                <article class="role">
+                    <h3>Attentive</h3>
+                    <div class="role-meta">Staff Software Engineer · Sep 2024 - Present · San Francisco Bay Area</div>
                     <ul>
                         <li>Building production GenAI applications using LLMs, Generative AI, and OpenAI APIs.</li>
-                        <li>Developing an agent harness system designed for deploying and orchestrating autonomous AI agents at scale.</li>
+                        <li>Developing agent harness infrastructure for deploying and orchestrating autonomous AI agents at scale.</li>
                     </ul>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Staff Software Engineer <span class="item-company">@ Lacework</span></span>
-                        <span class="item-date">Mar 2021 – Sep 2024</span>
-                    </div>
+                </article>
+                <article class="role">
+                    <h3>Lacework</h3>
+                    <div class="role-meta">Staff Software Engineer · Mar 2021 - Sep 2024</div>
                     <ul>
-                        <li>Engineered an in-house orchestrator heavily optimized for scale, high availability, and sub-second low latency.</li>
-                        <li>Leveraged Kubernetes and Argo to manage containerized execution pipelines for enterprise security telemetry.</li>
+                        <li>Engineered a high-scale, high-availability orchestrator optimized for sub-second low latency.</li>
+                        <li>Used Kubernetes and Argo to run containerized execution pipelines for security telemetry workloads.</li>
                     </ul>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Member Of Technical Staff <span class="item-company">@ Clari</span></span>
-                        <span class="item-date">Mar 2019 – Mar 2021</span>
-                    </div>
-                    <div class="item-location">Sunnyvale, CA</div>
+                </article>
+                <article class="role">
+                    <h3>Clari</h3>
+                    <div class="role-meta">Member Of Technical Staff · Mar 2019 - Mar 2021 · Sunnyvale, CA</div>
                     <ul>
-                        <li>Built scalable ETL pipelines to load multi-source data into an in-house time series data warehouse.</li>
-                        <li>Implemented core Query Manager features to optimize data retrieval and execution across data platforms.</li>
+                        <li>Built ETL pipelines to load multi-source data into an in-house time-series data warehouse.</li>
+                        <li>Implemented Query Manager features for data retrieval and execution across internal data platforms.</li>
                     </ul>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Software Engineer <span class="item-company">@ Microsoft</span></span>
-                        <span class="item-date">Nov 2017 – Mar 2019</span>
-                    </div>
-                    <div class="item-location">Greater Seattle Area</div>
+                </article>
+                <article class="role">
+                    <h3>Microsoft</h3>
+                    <div class="role-meta">Software Engineer · Nov 2017 - Mar 2019 · Greater Seattle Area</div>
                     <ul>
-                        <li>Worked in the Azure Storage Service Team engineering backend distributed cloud infrastructure.</li>
-                        <li>Implemented automated storage tiering capabilities across Azure Blob Storage tiers (Hot, Cool, Archive).</li>
+                        <li>Worked on backend distributed infrastructure for the Azure Storage Service team.</li>
+                        <li>Implemented automated storage tiering across Azure Blob Storage Hot, Cool, and Archive tiers.</li>
                     </ul>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Staff / Senior Software Engineer <span class="item-company">@ Nimble Storage</span></span>
-                        <span class="item-date">May 2014 – Sep 2017</span>
-                    </div>
-                    <div class="item-location">San Francisco Bay Area</div>
+                </article>
+                <article class="role">
+                    <h3>Nimble Storage</h3>
+                    <div class="role-meta">Staff / Senior Software Engineer · May 2014 - Sep 2017 · San Francisco Bay Area</div>
                     <ul>
-                        <li>Engineered Control Plane data protection features for Nimble Operating System, primarily focusing on storage replication algorithms.</li>
+                        <li>Engineered Control Plane data protection features for Nimble Operating System.</li>
+                        <li>Focused on storage replication algorithms and reliable storage platform behavior.</li>
                     </ul>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Member of Technical Staff <span class="item-company">@ NetApp</span></span>
-                        <span class="item-date">Jul 2011 – Jul 2013</span>
-                    </div>
-                    <div class="item-location">Bangalore, India</div>
+                </article>
+                <article class="role">
+                    <h3>NetApp</h3>
+                    <div class="role-meta">Member of Technical Staff · Jul 2011 - Jul 2013 · Bangalore, India</div>
                     <ul>
                         <li>Worked on the SnapDrive for Unix product engineering team.</li>
+                        <li>Contributed to Unix storage tooling in an enterprise storage environment.</li>
                     </ul>
-                </div>
-            </section>
+                </article>
+            </div>
+        </section>
 
-            <!-- Patents Section -->
-            <section id="patents">
-                <h2>Granted Patent</h2>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Reducing Resource Consumption Spikes in an Anomaly Detection Framework</span>
-                        <span class="item-date">Patent No: 12452272</span>
-                    </div>
-                    <div class="item-location">Assignee: Fortinet, Inc.</div>
-                    <p style="font-size: 0.94rem;">
-                        Methodology for optimizing computational resources during anomaly detection by applying intelligent scheduling and offsets across large-scale networking infrastructures.
+        <section>
+            <h2>Judging and Mentoring</h2>
+            <div class="link-list">
+                <article class="card link-card">
+                    <h3>Startup Mentoring</h3>
+                    <p>
+                        Mentoring <a href="https://herculean.ai/" target="_blank" rel="noreferrer">Herculean AI</a>, a startup building in the AI space.
                     </p>
-                    <a href="https://patents.justia.com/patent/12452272" target="_blank" style="color: var(--primary); font-size: 0.88rem; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 0.4rem;">Read Full Patent Details &rarr;</a>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects">
-                <h2>Key Technical Projects</h2>
-                
-                <div class="project-item">
-                    <span class="project-name">AI Agent Harness Systems:</span> Enterprise platform framework built to orchestrate, evaluate, and scale autonomous AI agents.
-                </div>
-                <div class="project-item">
-                    <span class="project-name">Low-Latency Distributed Orchestrator:</span> High-availability Kubernetes & Argo orchestrator built for low-latency telemetry processing.
-                </div>
-                <div class="project-item">
-                    <span class="project-name">Demand Paging & Private Heap in XINU:</span> Kernel implementation of page fault handling, circular queue FIFO, and NRU page replacement policies.
-                </div>
-                <div class="project-item">
-                    <span class="project-name">FUSE File System over RAID:</span> Emulation of RAID 0, 1, 4, and 5 over USB/virtual files using a custom FUSE file system library.
-                </div>
-                <div class="project-item">
-                    <span class="project-name">XINU Synchronization & Priority Inversion:</span> Designed read/write kernel locks featuring priority inheritance mechanisms to prevent priority inversion.
-                </div>
-                <div class="project-item">
-                    <span class="project-name">Short-Term Kernel Process Schedulers:</span> Implemented Linux-like epoch schedulers and randomized schedulers eliminating process starvation in XINU.
-                </div>
-                <div class="project-item">
-                    <span class="project-name">Cache Coherence Protocol Simulator:</span> Multiprocessor simulator supporting MSI, MESI, and MOESI protocols with LRU cache replacement.
-                </div>
-                <div class="project-item">
-                    <span class="project-name">Point-to-Multipoint Reliable FTP:</span> Reliable transport layer protocol over unreliable UDP using Stop-And-Wait ARQ.
-                </div>
-                <div class="project-item">
-                    <span class="project-name">P2P Network via Distributed Index:</span> P2P application protocol leveraging concurrent threading models for RFC distribution.
-                </div>
-                <div class="project-item">
-                    <span class="project-name">Prefix-Trie & BST Lookup Structures:</span> Specialized DNS prefix-trie and ARP binary search tree data structures for networking applications.
-                </div>
-            </section>
-
-            <!-- Education Section -->
-            <section id="education">
-                <h2>Education</h2>
-
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Harvard Business School Online</span>
+                </article>
+                <article class="card link-card">
+                    <h3>Conference Reviewer</h3>
+                    <p>Reviewer for academic and technical conferences across AI, computing, engineering, and distributed systems.</p>
+                    <div class="inline-links" aria-label="Conference reviewer links">
+                        <a href="https://aece2026.rkgitedu.in/" target="_blank" rel="noreferrer">AECE</a>
+                        <a href="https://sites.google.com/cmrit.ac.in/c2i6-2026" target="_blank" rel="noreferrer">CTIS</a>
+                        <a href="https://www.sirmvit-ieee.com/" target="_blank" rel="noreferrer">FESCIS</a>
+                        <a href="https://ieeecsrec.org/iccds2026" target="_blank" rel="noreferrer">ICCDS</a>
+                        <a href="https://www.amrita.edu/events/icrm/" target="_blank" rel="noreferrer">CRM</a>
+                        <a href="https://icetce.skit.ac.in/" target="_blank" rel="noreferrer">ICETCE</a>
+                        <a href="https://fruct.org/conferences/40/call-for-participation/" target="_blank" rel="noreferrer">FRUCT</a>
                     </div>
-                    <p style="font-size: 0.92rem;">Certificate in Management Essentials & Entrepreneurship Essentials</p>
-                </div>
+                </article>
+            </div>
+        </section>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">North Carolina State University</span>
-                    </div>
-                    <p style="font-size: 0.92rem;">Graduate Student, Computer Science</p>
-                </div>
+        <section>
+            <h2>Patent</h2>
+            <div class="note">
+                <strong>Reducing Resource Consumption Spikes in an Anomaly Detection Framework</strong><br>
+                Granted patent no. 12452272, focused on reducing resource spikes through intelligent scheduling and offsets.
+                <a href="https://patents.justia.com/patent/12452272" target="_blank" rel="noreferrer">Read more</a>.
+            </div>
+        </section>
 
-                <div class="item">
-                    <div class="item-header">
-                        <span class="item-title">Visvesvaraya Technological University</span>
-                    </div>
-                    <p style="font-size: 0.92rem;">B.E. in Information Science and Engineering</p>
-                </div>
-            </section>
+        <section>
+            <h2>Open Source</h2>
+            <div class="link-list">
+                <article class="card link-card">
+                    <h3>Koog Checkpoint DynamoDB S3</h3>
+                    <p>
+                        An open-source checkpointing project for Koog that uses DynamoDB and S3 for durable agent state.
+                    </p>
+                    <a class="source" href="https://github.com/nandishn/koog-checkpoint-dynamodb-s3" target="_blank" rel="noreferrer">View on GitHub</a>
+                </article>
+            </div>
+        </section>
 
-            <footer>
-                © 2026 Nandish Nanjappa. Hosted via GitHub Pages.
-            </footer>
+        <section>
+            <h2>Publications</h2>
+            <div class="link-list">
+                <article class="card link-card">
+                    <h3>Turning a SaaS App Into an Agentic System Without Rewriting the Backend</h3>
+                    <p>
+                        A HackerNoon article about adding an agent layer over existing SaaS backends while preserving authorization, business logic, observability, and reliability boundaries.
+                    </p>
+                    <a class="source" href="https://hackernoon.com/turning-a-saas-app-into-an-agentic-system-without-rewriting-the-backend" target="_blank" rel="noreferrer">Read on HackerNoon</a>
+                </article>
+                <article class="card link-card">
+                    <h3>AI Agents Are Becoming Distributed Systems</h3>
+                    <p>
+                        A Medium article on why production AI agents should be treated like distributed systems, with attention to state, retries, failures, orchestration, and operational controls.
+                    </p>
+                    <a class="source" href="https://medium.com/@nandishn6789/ai-agents-are-becoming-distributed-systems-70d5720c7f48" target="_blank" rel="noreferrer">Read on Medium</a>
+                </article>
+            </div>
+        </section>
 
-        </main>
-    </div>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                The easiest place to reach me is on <a href="https://www.linkedin.com/in/nandishn/" target="_blank" rel="noreferrer">LinkedIn</a>.
+            </p>
+        </section>
+    </main>
 
+    <footer>
+        <div class="wrap">© 2026 Nandish Nanjappa. Hosted on GitHub Pages.</div>
+    </footer>
 </body>
 </html>
